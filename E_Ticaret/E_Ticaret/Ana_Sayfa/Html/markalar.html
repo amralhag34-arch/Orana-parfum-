@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markalar</title>
+    <link rel="stylesheet" href="../Css/style.css">
+    <link rel="icon" href="../img/favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1e88e5;
+            --dark-blue: #1565c0;
+            --light-blue: #64b5f6;
+            --pale-blue: #bbdefb;
+            --hover-blue: #1976d2;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .brands-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            color: var(--dark-blue);
+            margin: 2rem 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            border-bottom: 3px solid var(--light-blue);
+            padding-bottom: 1rem;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .brand-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(30, 136, 229, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--pale-blue);
+        }
+
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 136, 229, 0.2);
+            border-color: var(--light-blue);
+        }
+
+        .brand-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+        }
+
+        .brand-info {
+            padding: 1.5rem;
+            text-align: center;
+            background: white;
+        }
+
+        .brand-name {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .brand-description {
+            color: #546e7a;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .view-products {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .view-products:hover {
+            background: var(--hover-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(30, 136, 229, 0.3);
+        }
+
+        .brands-filter {
+            margin-bottom: 2.5rem;
+            text-align: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(30, 136, 229, 0.1);
+        }
+
+        .filter-button {
+            padding: 0.8rem 1.5rem;
+            margin: 0.5rem;
+            border: 2px solid var(--primary-blue);
+            background: transparent;
+            color: var(--primary-blue);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .filter-button.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .filter-button:hover {
+            background: var(--pale-blue);
+            color: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+
+        .filter-button.active:hover {
+            background: var(--hover-blue);
+            color: white;
+        }
+
+        .research {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .research input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--pale-blue);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: var(--dark-blue);
+        }
+
+        .research input:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.1);
+            outline: none;
+        }
+
+        .research i {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-blue);
+        }
+
+        /* Responsive design improvements */
+        @media (max-width: 768px) {
+            .brands-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .filter-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation for cards */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .brand-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <a href="index.html" class="logo"> <img src="../img/profile.png" alt="logo"></a>
+
+        <div class="research">
+            <form onsubmit="event.preventDefault();">
+                <label for="search-input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                <input type="text" id="search-input" placeholder="Search...">
+            </form>
+        </div>
+
+        <nav id="navbar">
+            <ul>
+                <li><a href="erkek.html">Erkek</a></li>
+                <li><a href="Kadin.html">Kadın</a></li>
+                <li><a href="../Html/index.html">Anasayfa</a></li>
+                <li><a href="markalar.html">Markalar</a></li>
+                <li><a href="index.html #Hakkinda">Hakkında</a></li>
+            </ul>
+        </nav>
+
+        <div id="icons">
+            <a href="file:///D:/E_Ticaret/Giris_sayfa/Html/login.html"><i class="fa-regular fa-user"></i></a>
+            <!-- dikkat-->
+            <a href="favoriler.html"><i class="fa-regular fa-heart"></i></a>
+            <a href="Sepete.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+    <main class="brands-container">
+        <h1 class="page-title">Markalar</h1>
+        
+        <div class="brands-filter">
+            <button class="filter-button active" data-category="all">Tümü</button>
+            <button class="filter-button" data-category="parfum">Parfüm</button>
+            <button class="filter-button" data-category="kozmetik">Kozmetik</button>
+            <button class="filter-button" data-category="bakim">Cilt Bakım</button>
+        </div>
+
+        <div class="brands-grid">
+            <div class="brand-card" data-category="parfum">
+                <img src="../img/brands/chanel.jpg" alt="Chanel" class="brand-image">
+                <div class="brand-info">
+                    <h3 class="brand-name">Chanel</h3>
+                    <p class="brand-description">Lüks parfüm ve kozmetik ürünleri</p>
+                    <a href="#" class="view-products">Ürünleri Gör</a>
+                </div>
+            </div>
+
+            <div class="brand-card" data-category="kozmetik">
+                <img src="../img/brands/mac.jpg" alt="MAC" class="brand-image">
+                <div class="brand-info">
+                    <h3 class="brand-name">MAC</h3>
+                    <p class="brand-description">Profesyonel makyaj ürünleri</p>
+                    <a href="#" class="view-products">Ürünleri Gör</a>
+                </div>
+            </div>
+
+            <div class="brand-card" data-category="bakim">
+                <img src="../img/brands/kiehls.jpg" alt="Kiehl's" class="brand-image">
+                <div class="brand-info">
+                    <h3 class="brand-name">Kiehl's</h3>
+                    <p class="brand-description">Doğal cilt bakım ürünleri</p>
+                    <a href="#" class="view-products">Ürünleri Gör</a>
+                </div>
+            </div>
+
+            <div class="brand-card" data-category="parfum">
+                <img src="../img/brands/dior.jpg" alt="Dior" class="brand-image">
+                <div class="brand-info">
+                    <h3 class="brand-name">Dior</h3>
+                    <p class="brand-description">Lüks parfüm ve kozmetik</p>
+                    <a href="#" class="view-products">Ürünleri Gör</a>
+                </div>
+            </div>
+
+            <div class="brand-card" data-category="kozmetik">
+                <img src="../img/brands/nyx.jpg" alt="NYX" class="brand-image">
+                <div class="brand-info">
+                    <h3 class="brand-name">NYX</h3>
+                    <p class="brand-description">Profesyonel makyaj ürünleri</p>
+                    <a href="#" class="view-products">Ürünleri Gör</a>
+                </div>
+            </div>
+
+            <div class="brand-card" data-category="bakim">
+                <img src="../img/brands/ordinary.jpg" alt="The Ordinary" class="brand-image">
+                <div class="brand-info">
+                    <h3 class="brand-name">The Ordinary</h3>
+                    <p class="brand-description">Bilimsel cilt bakım çözümleri</p>
+                    <a href="#" class="view-products">Ürünleri Gör</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const brandCards = document.querySelectorAll('.brand-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    const category = button.dataset.category;
+
+                    brandCards.forEach(card => {
+                        if (category === 'all' || card.dataset.category === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                brandCards.forEach(card => {
+                    const brandName = card.querySelector('.brand-name').textContent.toLowerCase();
+                    const brandDesc = card.querySelector('.brand-description').textContent.toLowerCase();
+
+                    if (brandName.includes(searchTerm) || brandDesc.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

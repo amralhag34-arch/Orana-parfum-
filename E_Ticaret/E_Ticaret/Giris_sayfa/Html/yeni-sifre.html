@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yeni şifre </title>
+    <link rel="icon" href="../img/favicon.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Css/style.css">
+
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>Orana Parfum</h1>
+            <p>Şifre Sıfırlama</p>
+        </div>
+        <div class="reset-steps">
+            <div class="step active" id="step1">
+                <form id="resetForm">
+                    <div class="form-group">
+                        <label for="email">E-posta</label>
+                        <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                    <button type="submit" class="login-btn">Sıfırlama Bağlantısı Gönder</button>
+                </form>
+            </div>
+
+            <div class="step" id="step2">
+                <div class="verification-message">
+                    <div class="icon-success">✓</div>
+                    <h3>Sıfırlama Bağlantısı Gönderildi</h3>
+                    <p>Lütfen şifre sıfırlama talimatları için e-postanızı kontrol edin</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="back-to-login">
+            <a href="login.html">Giriş Sayfasına Dön</a>
+        </div>
+    </div>
+    <script src="/Giris_sayfa/js/yeni-sifre.js"></script>
+
+</body>
+</html>

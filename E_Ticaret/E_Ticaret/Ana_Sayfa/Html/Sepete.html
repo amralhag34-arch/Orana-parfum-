@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepetim</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="../Css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .cart-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .page-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        #cart-items {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+
+        .product-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .product-info img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quantity-btn {
+            background: #f0f0f0;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .remove-btn {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .remove-btn:hover {
+            background: #cc0000;
+        }
+
+        #cart-summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: right;
+        }
+
+        #total-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #checkout-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        #checkout-btn:hover {
+            background: #45a049;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <a href="index.html" class="logo"> <img src="../img/profile.png" alt="logo"></a>
+
+        <div class="research">
+            <form onsubmit="event.preventDefault();">
+                <label for="search-input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                <input type="text" id="search-input" placeholder="Search...">
+            </form>
+        </div>
+
+        <nav id="navbar">
+            <ul>
+                <li><a href="erkek.html">Erkek</a></li>
+                <li><a href="Kadin.html">Kadın</a></li>
+                <li><a href="../Html/index.html">Anasayfa</a></li>
+                <li><a href="markalar.html">Markalar</a></li>
+                <li><a href="index.html #Hakkinda">Hakkında</a></li>
+            </ul>
+        </nav>
+
+        <div id="icons">
+            <a href="file:///D:/E_Ticaret/Giris_sayfa/Html/login.html"><i class="fa-regular fa-user"></i></a>
+            <!-- dikkat-->
+            <a href="favoriler.html"><i class="fa-regular fa-heart"></i></a>
+            <a href="Sepete.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+    <main class="cart-container">
+        <h1 class="page-title">Sepetim</h1>
+        <div id="cart-items">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ürün</th>
+                        <th>Adet</th>
+                        <th>Fiyat</th>
+                        <th>Toplam</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="cart-summary">
+            <p>Toplam Tutar: <span id="total-price">0</span> TL</p>
+            <button id="checkout-btn">Ödeme Yap</button>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartItemsContainer = document.querySelector('#cart-items tbody');
+            const totalPriceElement = document.getElementById('total-price');
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            function updateCart() {
+                cartItemsContainer.innerHTML = '';
+                let totalPrice = 0;
+
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<tr><td colspan="5" class="empty-cart"><i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; display: block; margin-bottom: 1rem;"></i>Sepetiniz boş!</td></tr>';
+                } else {
+                    cart.forEach((item, index) => {
+                        const itemElement = document.createElement('tr');
+                        const itemPrice = item.price || 100; // Use item price if available, otherwise default to 100
+                        const itemTotal = itemPrice * item.quantity;
+                        totalPrice += itemTotal;
+
+                        itemElement.innerHTML = `
+                            <td>
+                                <div class="product-info">
+                                    <img src="${item.image}" alt="${item.name}">
+                                    <span>${item.name}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn decrease-btn">-</button>
+                                    <span>${item.quantity}</span>
+                                    <button class="quantity-btn increase-btn">+</button>
+                                </div>
+                            </td>
+                            <td>${itemPrice.toLocaleString('tr-TR')} TL</td>
+                            <td>${itemTotal.toLocaleString('tr-TR')} TL</td>
+                            <td><button class="remove-btn">Kaldır</button></td>
+                        `;
+
+                        const decreaseBtn = itemElement.querySelector('.decrease-btn');
+                        const increaseBtn = itemElement.querySelector('.increase-btn');
+                        const removeBtn = itemElement.querySelector('.remove-btn');
+
+                        decreaseBtn.addEventListener('click', () => {
+                            if (item.quantity > 1) {
+                                item.quantity -= 1;
+                                updateCart();
+                            }
+                        });
+
+                        increaseBtn.addEventListener('click', () => {
+                            item.quantity += 1;
+                            updateCart();
+                        });
+
+                        removeBtn.addEventListener('click', () => {
+                            cart.splice(index, 1);
+                            updateCart();
+                        });
+
+                        cartItemsContainer.appendChild(itemElement);
+                    });
+                }
+
+                totalPriceElement.textContent = totalPrice.toLocaleString('tr-TR');
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+
+            updateCart();
+
+            // Checkout button functionality
+            document.getElementById('checkout-btn').addEventListener('click', function() {
+                if (cart.length === 0) {
+                    alert('Sepetiniz boş! Lütfen ürün ekleyin.');
+                    return;
+                }
+                // Add checkout logic here
+                alert('Ödeme işlemi başlatılıyor...');
+            });
+        });
+    </script>
+</body>
+</html>

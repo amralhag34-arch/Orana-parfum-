@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/style.css">
+    <link rel="icon" href="../img/favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Ürün Detayı - Orana Parfum</title>
+</head>
+<body>
+    <header id="header">
+        <a href="index.html" class="logo"> <img src="../img/profile.png" alt="logo"></a>
+
+        <div class="research">
+            <form onsubmit="event.preventDefault();">
+                <label for="search-input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                <input type="text" id="search-input" placeholder="Search...">
+            </form>
+        </div>
+
+        <nav id="navbar">
+            <ul>
+                <li><a href="erkek.html">Erkek</a></li>
+                <li><a href="Kadin.html">Kadın</a></li>
+                <li><a href="../Html/index.html">Anasayfa</a></li>
+                <li><a href="markalar.html">Markalar</a></li>
+                <li><a href="#Hakkinda">Hakkında</a></li>
+            </ul>
+        </nav>
+
+        <div id="icons">
+            <a href="file:///D:/E_Ticaret/Giris_sayfa/Html/login.html"><i class="fa-regular fa-user"></i></a>
+            <!-- dikkat-->
+            <a href="favoriler.html"><i class="fa-regular fa-heart"></i></a>
+            <a href="Sepete.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+    <section class="product-details">
+        <div class="product-container">
+            <div class="product-images">
+                <div class="main-image">
+                    <img src="../img/urun.png" alt="Product Main Image" id="main-image">
+                </div>
+                <div class="thumbnail-images">
+                    <img src="../img/urun.png" alt="Thumbnail 1" onclick="changeImage(this)">
+                    <img src="../img/urun.png" alt="Thumbnail 2" onclick="changeImage(this)">
+                    <img src="../img/urun.png" alt="Thumbnail 3" onclick="changeImage(this)">
+                </div>
+            </div>
+            
+            <div class="product-info">
+                <h1>Cerruti 1881 Reve de Roses EDP for Women</h1>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(125 değerlendirme)</span>
+                </div>
+                <div class="price">
+                    <span class="current-price">$89.99</span>
+                    <span class="original-price">$129.99</span>
+                    <span class="discount">%31 İndirim</span>
+                </div>
+                <div class="size-selection">
+                    <h3>Boyut Seçin:</h3>
+                    <div class="size-options">
+                        <button class="size-btn">30ml</button>
+                        <button class="size-btn">50ml</button>
+                        <button class="size-btn">100ml</button>
+                    </div>
+                </div>
+                <div class="product-description">
+                    <h3>Ürün Açıklaması</h3>
+                    <p>Cerruti 1881 Reve de Roses, kadınlar için zarif ve çekici bir parfüm. Gül, yasemin ve amber notalarının muhteşem uyumu ile kendinizi özel hissedin.</p>
+                    <ul>
+                        <li>Üst Notalar: Bergamot, Pembe biber</li>
+                        <li>Orta Notalar: Gül, Yasemin</li>
+                        <li>Alt Notalar: Amber, Vanilya, Misk</li>
+                    </ul>
+                </div>
+                <div class="purchase-options">
+                    <div class="quantity">
+                        <button onclick="decrementQuantity()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="incrementQuantity()">+</button>
+                    </div>
+                    <button class="add-to-cart">Sepete Ekle</button>
+                    <button class="add-to-wishlist"><i class="far fa-heart"></i> Favorilere Ekle</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer" id="Hakkinda">
+        <div class="container">
+            <div class="footer-section contact">
+                <h3>İletişim</h3>
+                <p><strong>Adres:</strong> ADANA SEYHAN ŞAKİRPAŞA </p>
+                <p><strong>Telefon:</strong> 0539 235 01 05</p>
+                <p><strong>Çalışma Saatleri:</strong> 10:00 - 18:00, Pazartesi - Cumartesi</p>
+            </div>
+
+            <div class="footer-section about">
+                <h3>Hakkımızda</h3>
+                <ul>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">Teslimat Bilgileri</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">Şartlar ve Koşullar</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section account">
+                <h3>Hesabım</h3>
+                <ul>
+                    <li><a href="#">Giriş Yap</a></li>
+                    <li><a href="#">Sepetimi Görüntüle</a></li>
+                    <li><a href="#">İstek Listem</a></li>
+                    <li><a href="#">Siparişimi Takip Et</a></li>
+                    <li><a href="#">Yardım</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="social-icons" id="icons">
+                <a href="#"><i class="fa-brands fa-facebook"></i></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></i></a>
+            </div>
+        </div>
+
+    </footer>
+
+    <script>
+        function changeImage(element) {
+            document.getElementById('main-image').src = element.src;
+        }
+
+        function incrementQuantity() {
+            const input = document.getElementById('quantity');
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decrementQuantity() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+    </script>
+</body>
+</html>

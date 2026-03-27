@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Arama Sonuçları - Orana Parfum</title>
+</head>
+<body>
+    <header id="header">
+        <a href="index.html" class="logo"> <img src="../img/profile.png" alt="logo"></a>
+
+        <div class="research">
+            <form onsubmit="event.preventDefault();">
+                <label for="search-input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                <input type="text" id="search-input" placeholder="Search...">
+            </form>
+        </div>
+
+        <nav id="navbar">
+            <ul>
+                <li><a href="erkek.html">Erkek</a></li>
+                <li><a href="Kadin.html">Kadın</a></li>
+                <li><a href="../Html/index.html">Anasayfa</a></li>
+                <li><a href="markalar.html">Markalar</a></li>
+                <li><a href="#Hakkinda">Hakkında</a></li>
+            </ul>
+        </nav>
+
+        <div id="icons">
+            <a href="file:///D:/E_Ticaret/Giris_sayfa/Html/login.html"><i class="fa-regular fa-user"></i></a>
+            <!-- dikkat-->
+            <a href="favoriler.html"><i class="fa-regular fa-heart"></i></a>
+            <a href="Sepete.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+    <section class="search-results-section">
+        <div class="search-header">
+            <h1>Arama Sonuçları</h1>
+            <p id="results-count"></p>
+        </div>
+        <div id="search-results" class="product-grid">
+            <!-- Search results will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section contact">
+                <h3>İletişim</h3>
+                <p><strong>Adres:</strong> 562 Wellington Yolu, Sokak 32, San Francisco</p>
+                <p><strong>Telefon:</strong> +01 2222 365</p>
+                <p><strong>Saatler:</strong> 10:00 - 18:00, Pzt - Cmt</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-pinterest"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+            </div>
+            <p>© 2021, Tech2 vb. - HTML CSS E-Ticaret Şablonu</p>
+        </div>
+    </footer>
+
+    <script src="../Js/search.js"></script>
+</body>
+</html>

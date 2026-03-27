@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erkek Ürünleri</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../Css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header id="header">
+        <a href="index.html" class="logo"> <img src="../img/profile.png" alt="logo"></a>
+
+        <div class="research">
+            <form onsubmit="event.preventDefault();">
+                <label for="search-input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                <input type="text" id="search-input" placeholder="Search...">
+            </form>
+        </div>
+
+        <nav id="navbar">
+            <ul>
+                <li><a href="erkek.html">Erkek</a></li>
+                <li><a href="Kadin.html">Kadın</a></li>
+                <li><a href="../Html/index.html">Anasayfa</a></li>
+                <li><a href="markalar.html">Markalar</a></li>
+                <li><a href="#Hakkinda">Hakkında</a></li>
+            </ul>
+        </nav>
+
+        <div id="icons">
+            <a href="file:///D:/E_Ticaret/Giris_sayfa/Html/login.html"><i class="fa-regular fa-user"></i></a>
+            <!-- dikkat-->
+            <a href="favoriler.html"><i class="fa-regular fa-heart"></i></a>
+            <a href="Sepete.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+<!-- Özellikler ve Ürünler -->
+<div class="page-container">
+    <!-- Sol taraf filtreler -->
+    <aside class="filters-sidebar">
+        <h3 class="filter-title">Filtreler</h3>
+        <div class="filter-group">
+            <h4>Koku Ailesi</h4>
+            <div class="filter-options">
+                <label class="filter-checkbox">
+                    <input type="checkbox" name="fragrance" value="fresh">
+                    <span class="checkmark"></span>
+                    Ferah
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" name="fragrance" value="floral">
+                    <span class="checkmark"></span>
+                    Çiçeksi
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" name="fragrance" value="oriental">
+                    <span class="checkmark"></span>
+                    Oryantal
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" name="fragrance" value="musk">
+                    <span class="checkmark"></span>
+                    Misk
+                </label>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <h4>Fiyat Aralığı</h4>
+            <div class="filter-options">
+                <label class="filter-checkbox">
+                    <input type="checkbox" name="price" value="0-500">
+                    <span class="checkmark"></span>
+                    0 - 500 TL
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" name="price" value="500-1500">
+                    <span class="checkmark"></span>
+                    500 - 1.500 TL
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" name="price" value="1500-3000">
+                    <span class="checkmark"></span>
+                    1.500 - 3.000 TL
+                </label>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <h4>Markalar</h4>
+            <div class="filter-options">
+                <label class="filter-checkbox">
+                    <input type="checkbox" name="brand" value="dermokil">
+                    <span class="checkmark"></span>
+                    Dermokil
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" name="brand" value="atelierrebul">
+                    <span class="checkmark"></span>
+                    Atelier Rebul
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" name="brand" value="eyup">
+                    <span class="checkmark"></span>
+                    Eyüp Sabri Tuncer
+                </label>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Sağ taraf ürünler -->
+    <main class="products-container">
+        <div class="products-header">
+            <h1>Erkek Parfümleri</h1>
+            <div class="products-sort">
+                <select name="sort" id="sort">
+                    <option value="popular">En Popüler</option>
+                    <option value="new">En Yeni</option>
+                    <option value="price-low">Fiyat: Düşükten Yükseğe</option>
+                    <option value="price-high">Fiyat: Yüksekten Düşüğe</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <!-- Ürün Kartı 1 -->
+            <div class="product-card" data-product-id="kadin1">
+                <div class="product-badge new">Yeni</div>
+                <div class="product-image">
+                    <img src="../img/No 5 EDP.png" alt="Chanel No 5">
+                    <button class="favorite-btn" onclick="addToFavorites('kadin1', 'Chanel No 5', '4.999 TL', '../img/urun.png')">
+                        <i class="fa-regular fa-heart heart-icon"></i>
+                    </button>
+                    <div class="product-actions">
+                        <button class="quick-view-btn" aria-label="Hızlı Görünüm">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button class="cart-btn" aria-label="Sepete Ekle">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Chanel</h3>
+                    <p>No 5 EDP</p>
+                    <span class="price">4.999 TL</span>
+                </div>
+            </div>
+
+            <!-- Ürün Kartı 2 -->
+            <div class="product-card" data-product-id="kadin2">
+                <div class="product-image">
+                    <img src="../img/Miss Dior EDP.png" alt="Miss Dior">
+                    <button class="favorite-btn" onclick="addToFavorites('kadin2', 'Miss Dior', '1.999 TL', '../img/urun.png')">
+                        <i class="fa-regular fa-heart heart-icon"></i>
+                    </button>
+                    <div class="product-actions">
+                        <button class="quick-view-btn" aria-label="Hızlı Görünüm">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button class="cart-btn" aria-label="Sepete Ekle">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Dior</h3>
+                    <p>Miss Dior EDP</p>
+                    <span class="price">1,999 TL</span>
+                </div>
+            </div>
+
+            <!-- Ürün Kartı 3 -->
+            <div class="product-card" data-product-id="kadin3">
+                <div class="product-image">
+                    <img src="../img/Black Opium EDP.png" alt="Black Opium">
+                    <button class="favorite-btn" onclick="addToFavorites('kadin3', 'Black Opium', '4.599 TL', '../img/urun.png')">
+                        <i class="fa-regular fa-heart heart-icon"></i>
+                    </button>
+                    <div class="product-actions">
+                        <button class="quick-view-btn" aria-label="Hızlı Görünüm">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button class="cart-btn" aria-label="Sepete Ekle">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>YSL</h3>
+                    <p>Black Opium EDP</p>
+                    <span class="price">4.599 TL</span>
+                </div>
+            </div>
+
+            <!-- Ürün Kartı 4 -->
+            <div class="product-card" data-product-id="kadin4">
+                <div class="product-image">
+                    <img src="../img/La Vie Est Belle EDP.png" alt="La Vie Est Belle">
+                    <button class="favorite-btn" onclick="addToFavorites('kadin4', 'La Vie Est Belle', '3.799 TL', '../img/urun.png')">
+                        <i class="fa-regular fa-heart heart-icon"></i>
+                    </button>
+                    <div class="product-actions">
+                        <button class="quick-view-btn" aria-label="Hızlı Görünüm">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button class="cart-btn" aria-label="Sepete Ekle">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Lancôme</h3>
+                    <p>La Vie Est Belle EDP</p>
+                    <span class="price">3.799 TL</span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="modal-content">
+            <button class="close-modal">×</button>
+            <div class="modal-body">
+                <div class="product-modal-images">
+                    <div class="main-image">
+                        <img src="../img/urun.png" alt="Product Image" id="modalMainImage">
+                    </div>
+                    <div class="thumbnail-images">
+                        <img src="../img/No 5 EDP.png" alt="Thumbnail 1" class="thumbnail" onclick="updateMainImage(this.src, 'Chanel', 'No 5 EDP', '4.999 TL', 'Chanel No 5, çiçeksi ve odunsu notalarla zenginleştirilmiş lüks bir kadın parfümüdür.', ['Kalıcılık: 8-12 saat', 'Sillaj: Yüksek', 'Mevsim: 4 Mevsim'])">
+                        <img src="../img/Miss Dior EDP.png" alt="Thumbnail 2" class="thumbnail" onclick="updateMainImage(this.src, 'Dior', 'Miss Dior EDP', '1.999 TL', 'Miss Dior, çiçeksi ve meyvemsi kokuların mükemmel birleşimidir.', ['Kalıcılık: 6-8 saat', 'Sillaj: Orta', 'Mevsim: İlkbahar/Yaz'])">
+                        <img src="../img/Black Opium EDP.png" alt="Thumbnail 3" class="thumbnail" onclick="updateMainImage(this.src, 'YSL', 'Black Opium EDP', '4.599 TL', 'Black Opium, yoğun kahve ve vanilya notalarıyla gece kullanımına uygundur.', ['Kalıcılık: 8-10 saat', 'Sillaj: Yüksek', 'Mevsim: Sonbahar/Kış'])">
+                        <img src="../img/La Vie Est Belle EDP.png" alt="Thumbnail 4" class="thumbnail" onclick="updateMainImage(this.src, 'Lancôme', 'La Vie Est Belle EDP', '3.799 TL', 'La Vie Est Belle, tatlı ve şekerli notalarıyla neşe veren bir kokudur.', ['Kalıcılık: 8-12 saat', 'Sillaj: Yüksek', 'Mevsim: Her Mevsim'])">
+                    </div>
+                </div>
+                <div class="product-modal-info">
+                    <h2 class="modal-product-brand">Chanel</h2>
+                    <h3 class="modal-product-name">No 5 EDP</h3>
+                    <div class="modal-product-price">4.999 TL</div>
+                    <div class="modal-product-description">
+                        <h4>Ürün Açıklaması</h4>
+                        <p>Chanel No 5, çiçeksi ve odunsu notalarla zenginleştirilmiş lüks bir kadın parfümüdür.</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> Kalıcılık: 8-12 saat</li>
+                            <li><i class="fas fa-check"></i> Sillaj: Yüksek</li>
+                            <li><i class="fas fa-check"></i> Mevsim: 4 Mevsim</li>
+                        </ul>
+                    </div>
+                    <div class="modal-product-size">
+                        <h4>Hacim</h4>
+                        <div class="size-options">
+                            <button class="size-btn active">50ml</button>
+                            <button class="size-btn">100ml</button>
+                            <button class="size-btn">200ml</button>
+                        </div>
+                    </div>
+                    <div class="modal-product-actions">
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="1" min="1" max="10">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            Sepete Ekle
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hakinda ***** -->
+    <footer class="footer" id="Hakkinda">
+        <div class="container">
+            <div class="footer-section contact">
+                <h3>İletişim</h3>
+                <p><strong>Adres:</strong> ADANA SEYHAN ŞAKİRPAŞA </p>
+                <p><strong>Telefon:</strong> 0539 235 01 05</p>
+                <p><strong>Çalışma Saatleri:</strong> 10:00 - 18:00, Pazartesi - Cumartesi</p>
+            </div>
+
+            <div class="footer-section about">
+                <h3>Hakkımızda</h3>
+                <ul>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">Teslimat Bilgileri</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">Şartlar ve Koşullar</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section account">
+                <h3>Hesabım</h3>
+                <ul>
+                    <li><a href="#">Giriş Yap</a></li>
+                    <li><a href="#">Sepetimi Görüntüle</a></li>
+                    <li><a href="#">İstek Listem</a></li>
+                    <li><a href="#">Siparişimi Takip Et</a></li>
+                    <li><a href="#">Yardım</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="social-icons" id="icons">
+                <a href="#"><i class="fa-brands fa-facebook"></i></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></i></a>
+            </div>
+        </div>
+
+    </footer>
+    <script src="../Js/search.js"></script>
+    <script src="../Js/erkek.js"></script>
+    <script src="../Js/quick-view.js"></script>
+    <script src="../Js/Sepete.js"></script>
+    <script src="../Js/favorites.js"></script>
+
+
+</body>
+
+</html>
